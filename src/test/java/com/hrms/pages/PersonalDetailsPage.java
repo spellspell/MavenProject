@@ -22,6 +22,13 @@ public class PersonalDetailsPage extends CommonMethods {
     @FindBy (id = "personal_txtEmpLastName")
     public WebElement lastNameText;
 
+    @FindBy(xpath = "//div[@id = 'profile-pic']//following-sibling::h1")
+    public WebElement userProfileName;
+
+    public String getUserProfileName() {
+        return userProfileName.getText();
+    }
+
     public PersonalDetailsPage() {
         PageFactory.initElements(driver, this);
     }

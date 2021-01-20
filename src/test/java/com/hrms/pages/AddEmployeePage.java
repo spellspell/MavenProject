@@ -39,6 +39,21 @@ public class AddEmployeePage extends CommonMethods {
     @FindBy (id = "re_password")
     public WebElement rePassword;
 
+    public void enterFirstAndLastName(String firstName, String lastName) {
+        sendText(firstNameTextBox, firstName);
+        sendText(lastNameTextbox, lastName);
+    }
+
+    public void enterFirstMiddleAndLastName(String firstName, String middleName, String lastName) {
+        sendText(firstNameTextBox, firstName);
+        sendText(middleNameTextbox, middleName);
+        sendText(lastNameTextbox, lastName);
+    }
+
+    public void clickOnSaveBtn() {
+        jsClick(saveButton);
+    }
+
     public AddEmployeePage() {
         PageFactory.initElements(driver, this);
     }
