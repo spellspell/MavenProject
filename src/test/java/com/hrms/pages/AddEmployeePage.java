@@ -50,6 +50,10 @@ public class AddEmployeePage extends CommonMethods {
         sendText(lastNameTextbox, lastName);
     }
 
+    public void enterEmployeeId(String employeeId) {
+        sendText(empIDTextbox, employeeId);
+    }
+
     public void clickOnSaveBtn() {
         jsClick(saveButton);
     }
