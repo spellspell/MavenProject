@@ -3,17 +3,18 @@ package com.hrms.utils;
 import com.hrms.testbase.BaseClass;
 import com.hrms.testbase.PageInitializer;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 public class CommonMethods extends PageInitializer{
 
@@ -96,5 +97,114 @@ public class CommonMethods extends PageInitializer{
         Date date=new Date();
         SimpleDateFormat sdf=new SimpleDateFormat(pattern);
         return sdf.format(date);
+    }
+
+    /**
+     * this method will click on a radio button or a checkbox by the given list of elements and the value
+     * @param radioOrCheckBoxes
+     * @param value
+     */
+    public static void clickRadioOrCheckBox(List<WebElement> radioOrCheckBoxes, String value) {
+        for(WebElement radioOrCheckBox: radioOrCheckBoxes) {
+            String actualValue = radioOrCheckBox.getAttribute("value").trim();
+            if(radioOrCheckBox.isEnabled() && actualValue.equals(value)) {
+                click(radioOrCheckBox);
+                break;
+            }
+        }
+    }
+
+    /**
+     * this method will click on a radio button or a checkbox by the given list of elements and the text value
+     * @param radioOrCheckBoxes
+     * @param value
+     */
+    public static void clickRadioOrCheckBoxByText(List<WebElement> radioOrCheckBoxes, String value) {
+        for(WebElement radioOrCheckBox: radioOrCheckBoxes) {
+            String actualValue = radioOrCheckBox.getText().trim();
+            System.out.println(actualValue);
+            if(actualValue.equals(value)) {
+                click(radioOrCheckBox);
+                break;
+            }
+        }
+    }
+
+    /**
+     * this method will select a value from a given dropDown by the given visible text
+     * @param dd
+     * @param visibleText
+     */
+    public static void selectDDValue(WebElement dd, String visibleText) {
+        try{
+            Select select = new Select(dd);
+            List<WebElement> options = select.getOptions();
+            for(WebElement option: options) {
+                if(option.getText().trim().equals(visibleText)) {
+                    select.selectByVisibleText(visibleText);
+                    break;
+                }
+            }
+        } catch (UnexpectedTagNameException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * this method will select a value from a given dropDown by the given index
+     * @param dd
+     * @param index
+     */
+    public static void selectDDValue(WebElement dd, int index) {
+        try {
+            Select select = new Select(dd);
+            List<WebElement> options = select.getOptions();
+            int ddSize = options.size();
+
+            if(ddSize > index) {
+                select.selectByIndex(index);
+            }
+        } catch (UnexpectedTagNameException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * this method will switch to a frame by the given frame index
+     * @param frameIndex
+     */
+    public static void switchToFrame(int frameIndex) {
+        try{
+            driver.switchTo().frame(frameIndex);
+        } catch (NoSuchFrameException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * this method will switch to a frame by the given name or id
+     * @param nameOrId
+     */
+    public static void switchToFrame(String nameOrId) {
+        try{
+            driver.switchTo().frame(nameOrId);
+        } catch (NoSuchFrameException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * this method will switch to a child window
+     */
+    public static void switchToChildWindow() {
+       String mainWindow = driver.getWindowHandle();
+       Set<String> allWindows = driver.getWindowHandles();
+       for(String window: allWindows) {
+           if(!window.equals(mainWindow)) {
+               driver.switchTo().window(window);
+               break;
+           }
+       }
     }
 }

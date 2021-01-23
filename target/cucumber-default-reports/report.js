@@ -1,69 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/ConfigurePIM.feature");
 formatter.feature({
-  "name": "Login Functionality",
+  "name": "Configure PIM - Optional Fields",
   "description": "",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "name": "@featureTag"
-    },
-    {
-      "name": "@login"
-    },
-    {
-      "name": "#"
-    },
-    {
-      "name": "feature"
-    },
-    {
-      "name": "level"
-    },
-    {
-      "name": "tag"
-    }
-  ]
+  "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Login with valid credentials",
+  "name": "Unchecking unnecessary checkboxes",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@featureTag"
-    },
-    {
-      "name": "@login"
-    },
-    {
-      "name": "#"
-    },
-    {
-      "name": "feature"
-    },
-    {
-      "name": "level"
-    },
-    {
-      "name": "tag"
-    },
-    {
-      "name": "@validCreds"
-    },
-    {
-      "name": "@smoke"
-    },
-    {
-      "name": "#"
-    },
-    {
-      "name": "scenario"
-    },
-    {
-      "name": "level"
-    },
-    {
-      "name": "tag"
+      "name": "@pim"
     }
   ]
 });
@@ -100,7 +47,61 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.embedding("image/png", "embedded0.png", "Login with valid credentials");
+formatter.step({
+  "name": "click on PIM",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.hrms.stepdefinitions.AddEmployeeStepDefinition.click_on_PIM()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "click on configuration dropdown",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.hrms.stepdefinitions.PIMConfigurationStepDefinition.click_on_configuration_dropdown()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "click on optional fields",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.hrms.stepdefinitions.PIMConfigurationStepDefinition.click_on_optional_fields()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "click on edit button",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.hrms.stepdefinitions.PIMConfigurationStepDefinition.click_on_edit_button()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "uncheck unnecessary checkboxes",
+  "rows": [
+    {},
+    {}
+  ],
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.hrms.stepdefinitions.PIMConfigurationStepDefinition.uncheck_unnecessary_checkboxes(io.cucumber.datatable.DataTable)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.embedding("image/png", "embedded0.png", "Unchecking unnecessary checkboxes");
 formatter.after({
   "status": "passed"
 });
