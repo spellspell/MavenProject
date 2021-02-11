@@ -3,6 +3,8 @@ package com.hrms.stepdefinitions;
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.Constants;
 import com.hrms.utils.ExcelUtils;
+import com.hrms.utils.GlobalVariables;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -41,6 +43,8 @@ public class AddEmployeeStepDefinition extends CommonMethods {
     public void enter_first_name_middle_name_and_last_name(String firstName, String middleName,
                                                            String lastName) {
         addEmployeePage.enterFirstMiddleAndLastName(firstName, middleName, lastName);
+        
+       GlobalVariables.employeeData= firstName+" "+middleName+" "+lastName;
     }
 
     @Then("verify that {string} is added successfully")
@@ -104,5 +108,17 @@ public class AddEmployeeStepDefinition extends CommonMethods {
         }
 
     }
-
+    
+    @When("capture employeeId")
+    public void capture_employeeId() {
+    	GlobalVariables.emp_Id = addEmployeePage.empIDTextbox.getAttribute("value");
+    }
+    
+    @Then("very data from db and ui is matched")
+    public void very_data_from_db_and_ui_is_matched() {
+        System.out.println(GlobalVariables.dbList);
+        System.out.println(GlobalVariables.employeeData);
+        
+        //add validation step using assertion
+    }
 }

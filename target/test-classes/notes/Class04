@@ -10,8 +10,7 @@ Maven has 3 basic(built-in) cycles:
 
 https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 
-yes     no                      |yes|
-yes     no                      yes
-yes     no                      |yes|
-yes     no
-yes     no
+Functions to build:
+selectDDValue overload
+switchToFrame overload
+Actions functions - drag and drop, hover over...

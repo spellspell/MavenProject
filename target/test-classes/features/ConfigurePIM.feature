@@ -12,3 +12,4 @@ Feature: Configure PIM - Optional Fields
     And uncheck unnecessary checkboxes
       |Show SSN field in Personal Details|
       |Show SIN field in Personal Details|
+    And click on save button
