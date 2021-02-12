@@ -7,7 +7,7 @@ Feature: Add Employee Functionality
     When click on PIM
     And click on add employee button
 
-  @addEmployeeWithoutLogin
+  @addEmployeeWithoutLogin @ui
   Scenario: Add employee without login details
     Then enter first and last name
     And click on save button

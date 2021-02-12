@@ -52,15 +52,39 @@ public class DbUtils {
 
 				map = new LinkedHashMap<>();
 
-				for (int c = 1; c <=rsetMData.getColumnCount(); c++) { // loops through each column of the row
+				for (int c = 1; c <= rsetMData.getColumnCount(); c++) { // loops through each column of the row
 					map.put(rsetMData.getColumnName(c), rset.getString(c));
 				}
 				dbList.add(map);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			closeConnection();
 		}
 
 		return dbList;
 	}
+
+	public static void closeConnection() {
+
+		try {
+
+			if (rset != null) {
+				rset.close();
+			}
+
+			if (st != null) {
+				st.close();
+			}
+
+			if (conn != null) {
+				conn.close();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
