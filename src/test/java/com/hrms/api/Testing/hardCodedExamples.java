@@ -74,15 +74,24 @@ public class hardCodedExamples {
     }
 
     @Test
-    public void bgetCreatedEmployee() {
-        RequestSpecification getCreatedEmployee = given().header("Authorization", token)
-                .header("Content-Type", "Application/json").queryParam("employee_id", "15900A");
+    public void bGetCreatedEmployee(){
+        RequestSpecification getCreatedEmployee = given().header("Authorization",token)
+                .header("Content-Type","Application/json")
+                .queryParam("employee_id","15862A");
         Response getEmployeeResponse = getCreatedEmployee.when().get("/getOneEmployee.php");
-//       getEmployeeResponse.prettyPrint();
-//        JsonPath js = getEmployeeResponse.jsonPath();
-//        String employeeid = js.getString("employee[0].employee_id");
-//        Assert.assertEquals(employeeid, "15900A");
-      getEmployeeResponse.then().assertThat().body("employee[0].employee_id",equalTo("15900A")) ;   }
+        getEmployeeResponse.prettyPrint();
+        // printing whole body
+        System.out.println(getEmployeeResponse.getBody().asString());
+        // getting empID
+        String empID = getEmployeeResponse.body().jsonPath().getString("employee[0].employee_id");
+        // printing empID
+        System.out.println(getEmployeeResponse.body().jsonPath().getString("employee[0].employee_id"));
+        // we are checking if the empID is the same as in the String
+        boolean verifyEmployeeID = empID.equalsIgnoreCase("15862A");
+        System.out.println(verifyEmployeeID);
+        // Assert.assertTrue(verifyEmployeeID);
+        getEmployeeResponse.then().assertThat().body("employee[0].employee_id",equalTo("15862A"));
+    }
 
 
 }
