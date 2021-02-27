@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3151326900,
+              "duration": 3240309800,
               "status": "passed"
             },
             "line": 7,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T18:31:51.466Z",
+        "start_timestamp": "2021-02-27T18:46:20.081Z",
         "line": 9,
         "name": "Creating an Employee",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 44879400,
+              "duration": 34432100,
               "status": "passed"
             },
             "line": 10,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 460112200,
+              "duration": 468928800,
               "status": "passed"
             },
             "line": 11,
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 53856200,
+              "duration": 56848700,
               "status": "passed"
             },
             "line": 12,
@@ -76,25 +76,41 @@
           },
           {
             "result": {
-              "duration": 84776300,
+              "duration": 82813100,
               "status": "passed"
             },
             "line": 13,
-            "name": "the employee is created",
+            "name": "the employee is created contains key \"Message\" and value \"Entry Created\"",
             "match": {
-              "location": "com.hrms.api.apiTestingFinalSteps.the_employee_is_created()"
+              "arguments": [
+                {
+                  "val": "\"Message\"",
+                  "offset": 37
+                },
+                {
+                  "val": "\"Entry Created\"",
+                  "offset": 57
+                }
+              ],
+              "location": "com.hrms.api.apiTestingFinalSteps.the_employee_is_created_contains_key_and_value(java.lang.String,java.lang.String)"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 67813000,
+              "duration": 61836100,
               "status": "passed"
             },
             "line": 14,
-            "name": "the employeeID is stored in the global variable to be used for other calls",
+            "name": "the employeeID \"Employee[0].employee\" is stored in the global variable to be used for other calls",
             "match": {
-              "location": "com.hrms.api.apiTestingFinalSteps.the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls()"
+              "arguments": [
+                {
+                  "val": "\"Employee[0].employee\"",
+                  "offset": 15
+                }
+              ],
+              "location": "com.hrms.api.apiTestingFinalSteps.the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls(java.lang.String)"
             },
             "keyword": "And "
           }
@@ -114,7 +130,7 @@
         "steps": [
           {
             "result": {
-              "duration": 521746500,
+              "duration": 474239100,
               "status": "passed"
             },
             "line": 7,
@@ -127,7 +143,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T18:31:55.466Z",
+        "start_timestamp": "2021-02-27T18:46:24.190Z",
         "line": 17,
         "name": "Retrieving the created employee",
         "description": "",

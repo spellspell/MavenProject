@@ -10,8 +10,8 @@
       Given a request is prepared to create an employee
       When a POST call is made to create an Employee
       Then the status code for creating an employee is 201
-      And the employee is created
-      And the employeeID is stored in the global variable to be used for other calls
+      And the employee is created contains key "Message" and value "Entry Created"
+      And the employeeID "Employee[0].employee" is stored in the global variable to be used for other calls
 
       @progression
       Scenario: Retrieving the created employee

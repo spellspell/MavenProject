@@ -65,21 +65,21 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the employee is created",
+  "name": "the employee is created contains key \"Message\" and value \"Entry Created\"",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.hrms.api.apiTestingFinalSteps.the_employee_is_created()"
+  "location": "com.hrms.api.apiTestingFinalSteps.the_employee_is_created_contains_key_and_value(java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the employeeID is stored in the global variable to be used for other calls",
+  "name": "the employeeID \"Employee[0].employee\" is stored in the global variable to be used for other calls",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.hrms.api.apiTestingFinalSteps.the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls()"
+  "location": "com.hrms.api.apiTestingFinalSteps.the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls(java.lang.String)"
 });
 formatter.result({
   "status": "passed"

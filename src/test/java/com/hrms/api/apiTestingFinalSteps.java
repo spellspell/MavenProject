@@ -32,16 +32,18 @@ public class apiTestingFinalSteps {
         //assert that the status code is 201
        response.then().assertThat().statusCode(status_code);
     }
-    @Then("the employee is created")
-    public void the_employee_is_created() {
-            //assert that the message contains entry created
-        response.then().assertThat().body("Message",equalTo("Entry Created"));
 
+   @Then("the employee is created contains key {string} and value {string}")
+    public void the_employee_is_created_contains_key_and_value(String key, String value) {
+    //assert that the message contains entry created
+    response.then().assertThat().body(key,equalTo(value));
     }
-    @Then("the employeeID is stored in the global variable to be used for other calls")
-    public void the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls() {
+
+
+    @Then("the employeeID {string} is stored in the global variable to be used for other calls")
+    public void the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls(String value) {
         // extract the emploeeID from the json response
-        employeeID=response.jsonPath().getString("Employee[0].employee_id");
+         employeeID=response.jsonPath().getString(value);
     }
 
 
