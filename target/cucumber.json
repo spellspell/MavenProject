@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3200101900,
+              "duration": 5433196000,
               "status": "passed"
             },
             "line": 7,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T17:20:46.989Z",
+        "start_timestamp": "2021-02-27T17:50:06.475Z",
         "line": 9,
         "name": "Creating an Employee",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 35419500,
+              "duration": 2992400,
               "status": "passed"
             },
             "line": 10,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 499927600,
+              "duration": 1100781300,
               "status": "passed"
             },
             "line": 11,
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 37913500,
+              "duration": 25961800,
               "status": "passed"
             },
             "line": 12,
@@ -76,7 +76,7 @@
           },
           {
             "result": {
-              "duration": 55852500,
+              "duration": 80782600,
               "status": "passed"
             },
             "line": 13,
@@ -88,6 +88,7 @@
           },
           {
             "result": {
+              "duration": 88468400,
               "status": "passed"
             },
             "line": 14,
@@ -101,6 +102,91 @@
         "tags": [
           {
             "name": "@apiWorkflow"
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 503278200,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "a JWT is generated",
+            "match": {
+              "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-02-27T17:50:13.350Z",
+        "line": 17,
+        "name": "Retrieving the created employee",
+        "description": "",
+        "id": "syntax-hrms-api-workflow;retrieving-the-created-employee",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 18,
+            "name": "a request is prepared to retrieve the created employee",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 19,
+            "name": "a GET call is made to retrieve the created Employee",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 20,
+            "name": "the status code for retrieving the created employee is 200",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 21,
+            "name": "the retrieved EmployeeID matches the globally stored EmployeeID",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 22,
+            "name": "the retrieved data matched the data used to create the employee",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@apiWorkflow"
+          },
+          {
+            "name": "@progression"
           }
         ]
       }

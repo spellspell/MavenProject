@@ -13,4 +13,10 @@ public class apiConstants {
     public static final String DELETE__EMPLOYEE_URI=BaseURI+"/deleteEmployee.php";
 
 
+
+    public static final String Header_Content_type="Content-type";
+    public static final String Content_type="application/json";
+
+    public static final String Header_Authorization="Authorization";
+
 }

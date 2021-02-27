@@ -1,5 +1,6 @@
 package com.hrms.api;
 
+import com.hrms.utils.apiConstants;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -14,8 +15,8 @@ public class apiTestingFinalSteps {
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
         //preparing request to create Employee
-        request=given().header("Content-type","application/json")
-                .header("Authorization",generateTokenSteps.token);
+        request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
+                .header(apiConstants.Header_Authorization,generateTokenSteps.token);
 
 
         request=request .body("{\"emp_lastname\":\"sadiq\"," +
@@ -31,7 +32,7 @@ public class apiTestingFinalSteps {
     @When("a POST call is made to create an Employee")
     public void a_POST_call_is_made_to_create_an_Employee() {
       //sending the request to create Employee
-     response=request.when().post("/createEmployee.php");
+     response=request.when().post(apiConstants.CREATE_EMPLOYEE_URI);
 
     }
     @Then("the status code for creating an employee is {int}")

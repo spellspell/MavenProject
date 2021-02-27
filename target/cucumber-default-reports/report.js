@@ -84,4 +84,72 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.step({
+  "name": "a JWT is generated",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Retrieving the created employee",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@apiWorkflow"
+    },
+    {
+      "name": "@progression"
+    }
+  ]
+});
+formatter.step({
+  "name": "a request is prepared to retrieve the created employee",
+  "keyword": "Given "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "a GET call is made to retrieve the created Employee",
+  "keyword": "When "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "the status code for retrieving the created employee is 200",
+  "keyword": "Then "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "the retrieved EmployeeID matches the globally stored EmployeeID",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "the retrieved data matched the data used to create the employee",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
 });
