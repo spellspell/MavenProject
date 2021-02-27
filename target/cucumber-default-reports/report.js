@@ -22,7 +22,7 @@ formatter.match({
   "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.scenario({
   "name": "Creating an Employee",
@@ -42,7 +42,7 @@ formatter.match({
   "location": "com.hrms.api.apiTestingFinalSteps.a_request_is_prepared_to_create_an_employee()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.step({
   "name": "a POST call is made to create an Employee",
@@ -52,7 +52,7 @@ formatter.match({
   "location": "com.hrms.api.apiTestingFinalSteps.a_POST_call_is_made_to_create_an_Employee()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.step({
   "name": "the status code for creating an employee is 201",
@@ -62,7 +62,7 @@ formatter.match({
   "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_for_creating_an_employee_is(java.lang.Integer)"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.step({
   "name": "the employee is created",
@@ -72,7 +72,7 @@ formatter.match({
   "location": "com.hrms.api.apiTestingFinalSteps.the_employee_is_created()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.step({
   "name": "the employeeID is stored in the global variable to be used for other calls",
@@ -82,6 +82,6 @@ formatter.match({
   "location": "com.hrms.api.apiTestingFinalSteps.the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 });

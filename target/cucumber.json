@@ -11,8 +11,8 @@
         "steps": [
           {
             "result": {
-              "duration": 1994800,
-              "status": "skipped"
+              "duration": 3097858600,
+              "status": "passed"
             },
             "line": 7,
             "name": "a JWT is generated",
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T16:16:26.170Z",
+        "start_timestamp": "2021-02-27T16:27:59.483Z",
         "line": 9,
         "name": "Creating an Employee",
         "description": "",
@@ -34,8 +34,8 @@
         "steps": [
           {
             "result": {
-              "duration": 1981600,
-              "status": "skipped"
+              "duration": 1993600,
+              "status": "passed"
             },
             "line": 10,
             "name": "a request is prepared to create an employee",
@@ -46,8 +46,8 @@
           },
           {
             "result": {
-              "duration": 999100,
-              "status": "skipped"
+              "duration": 999400,
+              "status": "passed"
             },
             "line": 11,
             "name": "a POST call is made to create an Employee",
@@ -58,8 +58,8 @@
           },
           {
             "result": {
-              "duration": 1000300,
-              "status": "skipped"
+              "duration": 1994000,
+              "status": "passed"
             },
             "line": 12,
             "name": "the status code for creating an employee is 201",
@@ -76,8 +76,8 @@
           },
           {
             "result": {
-              "duration": 995500,
-              "status": "skipped"
+              "duration": 984000,
+              "status": "passed"
             },
             "line": 13,
             "name": "the employee is created",
@@ -88,8 +88,8 @@
           },
           {
             "result": {
-              "duration": 998800,
-              "status": "skipped"
+              "duration": 2001300,
+              "status": "passed"
             },
             "line": 14,
             "name": "the employeeID is stored in the global variable to be used for other calls",
