@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3240309800,
+              "duration": 3315284300,
               "status": "passed"
             },
             "line": 7,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T18:46:20.081Z",
+        "start_timestamp": "2021-02-27T19:32:12.257Z",
         "line": 9,
         "name": "Creating an Employee",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 34432100,
+              "duration": 70332400,
               "status": "passed"
             },
             "line": 10,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 468928800,
+              "duration": 526238800,
               "status": "passed"
             },
             "line": 11,
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 56848700,
+              "duration": 47868400,
               "status": "passed"
             },
             "line": 12,
@@ -76,7 +76,7 @@
           },
           {
             "result": {
-              "duration": 82813100,
+              "duration": 92754000,
               "status": "passed"
             },
             "line": 13,
@@ -98,15 +98,15 @@
           },
           {
             "result": {
-              "duration": 61836100,
+              "duration": 67816500,
               "status": "passed"
             },
             "line": 14,
-            "name": "the employeeID \"Employee[0].employee\" is stored in the global variable to be used for other calls",
+            "name": "the employeeID \"Employee[0].employee_id\" is stored in the global variable to be used for other calls",
             "match": {
               "arguments": [
                 {
-                  "val": "\"Employee[0].employee\"",
+                  "val": "\"Employee[0].employee_id\"",
                   "offset": 15
                 }
               ],
@@ -130,7 +130,7 @@
         "steps": [
           {
             "result": {
-              "duration": 474239100,
+              "duration": 482705500,
               "status": "passed"
             },
             "line": 7,
@@ -143,7 +143,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T18:46:24.190Z",
+        "start_timestamp": "2021-02-27T19:32:16.468Z",
         "line": 17,
         "name": "Retrieving the created employee",
         "description": "",
@@ -153,56 +153,80 @@
         "steps": [
           {
             "result": {
-              "status": "undefined"
+              "duration": 21941000,
+              "status": "passed"
             },
             "line": 18,
             "name": "a request is prepared to retrieve the created employee",
-            "match": {},
+            "match": {
+              "location": "com.hrms.api.apiTestingFinalSteps.a_request_is_prepared_to_retrieve_the_created_employee()"
+            },
             "keyword": "Given "
           },
           {
             "result": {
-              "status": "undefined"
+              "duration": 507033800,
+              "status": "passed"
             },
             "line": 19,
             "name": "a GET call is made to retrieve the created Employee",
-            "match": {},
+            "match": {
+              "location": "com.hrms.api.apiTestingFinalSteps.a_GET_call_is_made_to_retrieve_the_created_Employee()"
+            },
             "keyword": "When "
           },
           {
             "result": {
-              "status": "undefined"
+              "duration": 997000,
+              "status": "passed"
             },
             "line": 20,
             "name": "the status code for retrieving the created employee is 200",
-            "match": {},
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 55
+                }
+              ],
+              "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_for_retrieving_the_created_employee_is(int)"
+            },
             "keyword": "Then "
           },
           {
             "result": {
-              "status": "undefined"
+              "duration": 8976000,
+              "status": "passed"
             },
             "line": 21,
-            "name": "the retrieved EmployeeID matches the globally stored EmployeeID",
-            "match": {},
+            "name": "the retrieved EmployeeID \"employee[0].employee_id\" matches the globally stored EmployeeID",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"employee[0].employee_id\"",
+                  "offset": 25
+                }
+              ],
+              "location": "com.hrms.api.apiTestingFinalSteps.the_retrieved_EmployeeID_matches_the_globally_stored_EmployeeID(java.lang.String)"
+            },
             "keyword": "And "
           },
           {
             "result": {
-              "status": "undefined"
+              "duration": 24934000,
+              "status": "passed"
             },
             "line": 22,
-            "name": "the retrieved data matched the data used to create the employee",
-            "match": {},
+            "name": "the retrieved data matches the data used to create the employee",
+            "match": {
+              "location": "com.hrms.api.apiTestingFinalSteps.the_retrieved_data_matches_the_data_used_to_create_the_employee()"
+            },
             "keyword": "And "
           }
         ],
         "tags": [
           {
             "name": "@apiWorkflow"
-          },
-          {
-            "name": "@progression"
           }
         ]
       }

@@ -75,7 +75,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the employeeID \"Employee[0].employee\" is stored in the global variable to be used for other calls",
+  "name": "the employeeID \"Employee[0].employee_id\" is stored in the global variable to be used for other calls",
   "keyword": "And "
 });
 formatter.match({
@@ -106,9 +106,6 @@ formatter.scenario({
   "tags": [
     {
       "name": "@apiWorkflow"
-    },
-    {
-      "name": "@progression"
     }
   ]
 });
@@ -116,40 +113,50 @@ formatter.step({
   "name": "a request is prepared to retrieve the created employee",
   "keyword": "Given "
 });
-formatter.match({});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_request_is_prepared_to_retrieve_the_created_employee()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
   "name": "a GET call is made to retrieve the created Employee",
   "keyword": "When "
 });
-formatter.match({});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_GET_call_is_made_to_retrieve_the_created_Employee()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
   "name": "the status code for retrieving the created employee is 200",
   "keyword": "Then "
 });
-formatter.match({});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_for_retrieving_the_created_employee_is(int)"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
-  "name": "the retrieved EmployeeID matches the globally stored EmployeeID",
+  "name": "the retrieved EmployeeID \"employee[0].employee_id\" matches the globally stored EmployeeID",
   "keyword": "And "
 });
-formatter.match({});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.the_retrieved_EmployeeID_matches_the_globally_stored_EmployeeID(java.lang.String)"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 formatter.step({
-  "name": "the retrieved data matched the data used to create the employee",
+  "name": "the retrieved data matches the data used to create the employee",
   "keyword": "And "
 });
-formatter.match({});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.the_retrieved_data_matches_the_data_used_to_create_the_employee()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
 });
 });
