@@ -1,6 +1,7 @@
 package com.hrms.api;
 
 import com.hrms.utils.apiConstants;
+import com.hrms.utils.apiPayloadConstants;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -16,17 +17,8 @@ public class apiTestingFinalSteps {
     public void a_request_is_prepared_to_create_an_employee() {
         //preparing request to create Employee
         request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
-                .header(apiConstants.Header_Authorization,generateTokenSteps.token);
-
-
-        request=request .body("{\"emp_lastname\":\"sadiq\"," +
-                        "\"emp_middle_name\":\"s\"," +
-                        "\"emp_job_title\":\"Cloud Architect\"," +
-                        "\"emp_status\":\"Employee\"," +
-                        "\"emp_firstname\":\"moazzam\"," +
-                        "\"emp_gender\":\"M\"," +
-                        "\"emp_birthday\":\"2021-02-27\"" +
-                        "}");
+                .header(apiConstants.Header_Authorization,generateTokenSteps.token)
+                .body(apiPayloadConstants.createEmployeeBody());
 
     }
     @When("a POST call is made to create an Employee")
@@ -50,7 +42,6 @@ public class apiTestingFinalSteps {
     public void the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls() {
         // extract the emploeeID from the json response
         employeeID=response.jsonPath().getString("Employee[0].employee_id");
-
     }
 
 

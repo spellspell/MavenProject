@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5433196000,
+              "duration": 3151326900,
               "status": "passed"
             },
             "line": 7,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T17:50:06.475Z",
+        "start_timestamp": "2021-02-27T18:31:51.466Z",
         "line": 9,
         "name": "Creating an Employee",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2992400,
+              "duration": 44879400,
               "status": "passed"
             },
             "line": 10,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 1100781300,
+              "duration": 460112200,
               "status": "passed"
             },
             "line": 11,
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 25961800,
+              "duration": 53856200,
               "status": "passed"
             },
             "line": 12,
@@ -76,7 +76,7 @@
           },
           {
             "result": {
-              "duration": 80782600,
+              "duration": 84776300,
               "status": "passed"
             },
             "line": 13,
@@ -88,7 +88,7 @@
           },
           {
             "result": {
-              "duration": 88468400,
+              "duration": 67813000,
               "status": "passed"
             },
             "line": 14,
@@ -114,7 +114,7 @@
         "steps": [
           {
             "result": {
-              "duration": 503278200,
+              "duration": 521746500,
               "status": "passed"
             },
             "line": 7,
@@ -127,7 +127,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T17:50:13.350Z",
+        "start_timestamp": "2021-02-27T18:31:55.466Z",
         "line": 17,
         "name": "Retrieving the created employee",
         "description": "",
