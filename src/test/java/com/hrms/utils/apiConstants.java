@@ -10,7 +10,7 @@ public class apiConstants {
     public static final String GET_ONE_EMPLOYEE_URI=BaseURI+"/getOneEmployee.php";
     public static final String UPDATE_EMPLOYEE_URI=BaseURI+"/updateEmployee.php";
     public static final String GET_ALL_EMPLOYEE_URI=BaseURI+"/getAllEmployees.php";
-    public static final String DELETE__EMPLOYEE_URI=BaseURI+"//deleteEmployee.php";
+    public static final String DELETE__EMPLOYEE_URI=BaseURI+"/deleteEmployee.php";
 
 
 }
