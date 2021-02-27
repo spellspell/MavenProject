@@ -1,132 +1,155 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/addEmployee.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/apiWorkflow.feature");
 formatter.feature({
-  "name": "Add Employee Functionality",
-  "description": "",
-  "keyword": "Feature"
+  "name": "SYntax HRMS API Workflow",
+  "description": "    Description: This Feature file tests Syntax HRMS API Workflow",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "name": "@apiWorkflow"
+    }
+  ]
 });
 formatter.background({
   "name": "",
   "description": "",
   "keyword": "Background"
 });
-formatter.before({
-  "status": "passed"
-});
 formatter.step({
-  "name": "enter valid credentials",
-  "keyword": "When "
+  "name": "a JWT is generated",
+  "keyword": "Given "
 });
 formatter.match({
-  "location": "com.hrms.stepdefinitions.LoginStepDefinition.enter_valid_credentials()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "click on login button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.hrms.stepdefinitions.LoginStepDefinition.click_on_login_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "verify dashboard is displayed",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "com.hrms.stepdefinitions.LoginStepDefinition.verify_dashboard_is_displayed()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "click on PIM",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "com.hrms.stepdefinitions.AddEmployeeStepDefinition.click_on_PIM()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "click on add employee button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.hrms.stepdefinitions.AddEmployeeStepDefinition.click_on_add_employee_button()"
+  "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Adding Employee and database validation",
+  "name": "Creating an employee",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@db"
-    },
-    {
-      "name": "@regression"
+      "name": "@apiWorkflow"
     }
   ]
 });
 formatter.step({
-  "name": "enter first name \"John\", middle name \"John\" and last name \"Doe\"",
+  "name": "a request is prepared to create an employee",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSTeps.a_request_is_prepared_to_create_an_employee()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "a POST call is made to create an employee",
   "keyword": "When "
 });
 formatter.match({
-  "location": "com.hrms.stepdefinitions.AddEmployeeStepDefinition.enter_first_name_middle_name_and_last_name(java.lang.String,java.lang.String,java.lang.String)"
+  "location": "com.hrms.api.apiTestingFinalSTeps.a_POST_call_is_made_to_create_an_employee()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "capture employeeId",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.hrms.stepdefinitions.AddEmployeeStepDefinition.capture_employeeId()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "click on save button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.hrms.stepdefinitions.AddEmployeeStepDefinition.click_on_save_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "collect employee data from hrms database",
+  "name": "the status code for creating an Employee is 201",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "com.hrms.stepdefinitions.DbSteps.collect_employee_data_from_hrms_database()"
+  "location": "com.hrms.api.apiTestingFinalSTeps.the_status_code_for_creating_an_Employee_is(int)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "very data from db and ui is matched",
+  "name": "the employee is created conatins key \"Message\" and value \"Entry Created\"",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.hrms.stepdefinitions.AddEmployeeStepDefinition.very_data_from_db_and_ui_is_matched()"
+  "location": "com.hrms.api.apiTestingFinalSTeps.the_employee_is_created_conatins_key_and_value(java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
-formatter.embedding("image/png", "embedded0.png", "Adding Employee and database validation");
-formatter.after({
+formatter.step({
+  "name": "the employee ID \"Employee[0].employee_id\" is stored as a global variable to be used for other calls",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSTeps.the_employee_ID_is_stored_as_a_global_variable_to_be_used_for_other_calls(java.lang.String)"
+});
+formatter.result({
   "status": "passed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.step({
+  "name": "a JWT is generated",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Retrieving created employee",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@apiWorkflow"
+    },
+    {
+      "name": "@progression"
+    }
+  ]
+});
+formatter.step({
+  "name": "a request is prepared to retrieve the created employee",
+  "keyword": "Given "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "a GET call is made to retrieve the created employee",
+  "keyword": "When "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "the status code for retrieving the created employee is 200",
+  "keyword": "Then "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "the retrieved EmployeeID matches the globally stored EmployeeID",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "the retrieved data matches the data used to create an employee",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
 });
 });
