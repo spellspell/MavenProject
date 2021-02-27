@@ -1,9 +1,9 @@
 [
   {
-    "line": 4,
+    "line": 3,
     "elements": [
       {
-        "line": 7,
+        "line": 6,
         "name": "",
         "description": "",
         "type": "background",
@@ -11,10 +11,10 @@
         "steps": [
           {
             "result": {
-              "duration": 2239727000,
-              "status": "passed"
+              "duration": 1994800,
+              "status": "skipped"
             },
-            "line": 8,
+            "line": 7,
             "name": "a JWT is generated",
             "match": {
               "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
@@ -24,9 +24,9 @@
         ]
       },
       {
-        "start_timestamp": "2021-02-27T14:10:33.359Z",
-        "line": 10,
-        "name": "Creating an employee",
+        "start_timestamp": "2021-02-27T16:16:26.170Z",
+        "line": 9,
+        "name": "Creating an Employee",
         "description": "",
         "id": "syntax-hrms-api-workflow;creating-an-employee",
         "type": "scenario",
@@ -34,35 +34,35 @@
         "steps": [
           {
             "result": {
-              "duration": 35903100,
-              "status": "passed"
+              "duration": 1981600,
+              "status": "skipped"
             },
-            "line": 11,
+            "line": 10,
             "name": "a request is prepared to create an employee",
             "match": {
-              "location": "com.hrms.api.apiTestingFinalSTeps.a_request_is_prepared_to_create_an_employee()"
+              "location": "com.hrms.api.apiTestingFinalSteps.a_request_is_prepared_to_create_an_employee()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 495582900,
-              "status": "passed"
+              "duration": 999100,
+              "status": "skipped"
             },
-            "line": 12,
-            "name": "a POST call is made to create an employee",
+            "line": 11,
+            "name": "a POST call is made to create an Employee",
             "match": {
-              "location": "com.hrms.api.apiTestingFinalSTeps.a_POST_call_is_made_to_create_an_employee()"
+              "location": "com.hrms.api.apiTestingFinalSteps.a_POST_call_is_made_to_create_an_Employee()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 32913400,
-              "status": "passed"
+              "duration": 1000300,
+              "status": "skipped"
             },
-            "line": 13,
-            "name": "the status code for creating an Employee is 201",
+            "line": 12,
+            "name": "the status code for creating an employee is 201",
             "match": {
               "arguments": [
                 {
@@ -70,47 +70,31 @@
                   "offset": 44
                 }
               ],
-              "location": "com.hrms.api.apiTestingFinalSTeps.the_status_code_for_creating_an_Employee_is(int)"
+              "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_for_creating_an_employee_is(java.lang.Integer)"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 46076600,
-              "status": "passed"
+              "duration": 995500,
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "the employee is created",
+            "match": {
+              "location": "com.hrms.api.apiTestingFinalSteps.the_employee_is_created()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 998800,
+              "status": "skipped"
             },
             "line": 14,
-            "name": "the employee is created conatins key \"Message\" and value \"Entry Created\"",
+            "name": "the employeeID is stored in the global variable to be used for other calls",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"Message\"",
-                  "offset": 37
-                },
-                {
-                  "val": "\"Entry Created\"",
-                  "offset": 57
-                }
-              ],
-              "location": "com.hrms.api.apiTestingFinalSTeps.the_employee_is_created_conatins_key_and_value(java.lang.String,java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 34906600,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "the employee ID \"Employee[0].employee_id\" is stored as a global variable to be used for other calls",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Employee[0].employee_id\"",
-                  "offset": 16
-                }
-              ],
-              "location": "com.hrms.api.apiTestingFinalSTeps.the_employee_ID_is_stored_as_a_global_variable_to_be_used_for_other_calls(java.lang.String)"
+              "location": "com.hrms.api.apiTestingFinalSteps.the_employeeID_is_stored_in_the_global_variable_to_be_used_for_other_calls()"
             },
             "keyword": "And "
           }
@@ -118,97 +102,12 @@
         "tags": [
           {
             "name": "@apiWorkflow"
-          }
-        ]
-      },
-      {
-        "line": 7,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 465885200,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "a JWT is generated",
-            "match": {
-              "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2021-02-27T14:10:36.318Z",
-        "line": 18,
-        "name": "Retrieving created employee",
-        "description": "",
-        "id": "syntax-hrms-api-workflow;retrieving-created-employee",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 19,
-            "name": "a request is prepared to retrieve the created employee",
-            "match": {},
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 20,
-            "name": "a GET call is made to retrieve the created employee",
-            "match": {},
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 21,
-            "name": "the status code for retrieving the created employee is 200",
-            "match": {},
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 22,
-            "name": "the retrieved EmployeeID matches the globally stored EmployeeID",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 23,
-            "name": "the retrieved data matches the data used to create an employee",
-            "match": {},
-            "keyword": "And "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@apiWorkflow"
-          },
-          {
-            "name": "@progression"
           }
         ]
       }
     ],
-    "name": "SYntax HRMS API Workflow",
-    "description": "    Description: This Feature file tests Syntax HRMS API Workflow",
+    "name": "Syntax HRMS API Workflow",
+    "description": "    Description:This feature file tests Syntax HRMS API WrokFlow",
     "id": "syntax-hrms-api-workflow",
     "keyword": "Feature",
     "uri": "file:src/test/resources/features/apiWorkflow.feature",
