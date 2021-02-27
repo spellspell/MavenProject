@@ -9,6 +9,8 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class apiTestingFinalSteps {
      RequestSpecification request;
      Response response;
@@ -93,6 +95,13 @@ public class apiTestingFinalSteps {
         String emp_job_title = jpath.getString("employee[0].emp_job_title");
         String emp_status = jpath.getString("employee[0].emp_status");
 
+       assertThat(emp_first_name,equalTo("moazzam"));
+       assertThat(emp_last_name,equalTo("sadiq"));
+       assertThat(emp_middle_name,equalTo("s"));
+       assertThat(emp_birthday,equalTo("2021-02-27"));
+       assertThat(emp_gender,equalTo("Male"));
+       assertThat(emp_job_title,equalTo("Cloud Architect"));
+       assertThat(emp_status,equalTo("Employee"));
 
     }
 
