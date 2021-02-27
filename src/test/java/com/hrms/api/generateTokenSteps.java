@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class generateTokenSteps {
     String BaseURI= RestAssured.baseURI="http://3.237.189.167/syntaxapi/api";
-
+    static String token;
     @Given("a JWT is generated")
 
     public void a_JWT_is_generated() {
@@ -20,6 +20,7 @@ public class generateTokenSteps {
         Response generateTokenResponse = generateTokenRequest.when().post("/generateToken.php");
         generateTokenResponse.prettyPrint();
 
+        token="Bearer "+generateTokenResponse.jsonPath().getString("token");
 
     }
 

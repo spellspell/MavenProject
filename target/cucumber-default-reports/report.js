@@ -59,7 +59,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_for_creating_an_employee_is(java.lang.Integer)"
+  "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_for_creating_an_employee_is(int)"
 });
 formatter.result({
   "status": "passed"
