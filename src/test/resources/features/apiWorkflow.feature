@@ -22,4 +22,28 @@
         And the retrieved data matches the data used to create the employee
 
 
+        Scenario: Update the created Employee
+          Given a request is prepared to update the created employee
+          When a PUT call is made to update the employee
+          Then the status code is 201
+          And the updated employee contains key "Message" and value "Entry updated"
+
+      Scenario: Retrieving the updated employee
+        Given a request is prepared to retrieve the updated employee
+        When  a GET call is made to retrieve the updated Employee
+        Then the status code for retrieving the updated employee is 200
+        And the retrieved Employee_Middle_Name "employee[0].emp_middle_name" matches the globally sotred employee middle name
+
+
+        Scenario:Partially updating the employee
+          Given a request is preapared to partially update the employee
+          When a PATCH call is made to partially update the employee
+          Then the status code is 201
+          And the partailly updated employee contains key "Message" and value "Entry updated"
+          And the partially update employee "employee[0].emp_firstname" matches the globally stored employee first name
+
+
+
+
+
 
