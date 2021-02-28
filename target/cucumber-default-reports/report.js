@@ -364,4 +364,199 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.step({
+  "name": "a JWT is generated",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Delete the created employee",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@apiWorkflow"
+    }
+  ]
+});
+formatter.step({
+  "name": "a request is prepared to delete the employee",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_request_is_prepared_to_delete_the_employee()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "a Delete call is made",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_Delete_call_is_made()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the status code is 201",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_is(int)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the employee is successfully deleted with the \"message\" in response \"Entry deleted\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.the_employee_is_successfully_deleted_with_the_in_response(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the \"employee[0].employee_id\" is same as the one stored in global",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.the_is_same_as_the_one_stored_in_global(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.step({
+  "name": "a JWT is generated",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Retrieve all Employees",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@apiWorkflow"
+    }
+  ]
+});
+formatter.step({
+  "name": "a request is prepared to get all employees",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_request_is_prepared_to_get_all_employees()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "a GET call is made to retrieve all employees",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_GET_call_is_made_to_retrieve_all_employees()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the status code of the request is 200",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.the_status_code_of_the_request_is(int)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "it contains key1 \"Total Employees\" and Key2 \"Employees\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.it_contains_key1_and_Key2(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.step({
+  "name": "a JWT is generated",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.generateTokenSteps.a_JWT_is_generated()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Retrieve all Employees status",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@apiWorkflow"
+    }
+  ]
+});
+formatter.step({
+  "name": "a request is prepared to get all employees status",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_request_is_prepared_to_get_all_employees_status()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "a Get call is made to retrieve the status of all employees",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.a_Get_call_is_made_to_retrieve_the_status_of_all_employees()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "it contains the value1 \"Employee\" value2 \"Worker\"",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "com.hrms.api.apiTestingFinalSteps.it_contains_the_value1_value2(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
 });

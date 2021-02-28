@@ -42,6 +42,25 @@
           And the partailly updated employee contains key "Message" and value "Entry updated"
           And the partially update employee "employee[0].emp_firstname" matches the globally stored employee first name
 
+          Scenario: Delete the created employee
+            Given a request is prepared to delete the employee
+            When a Delete call is made
+            Then the status code is 201
+            And the employee is successfully deleted with the "message" in response "Entry deleted"
+            And the "employee[0].employee_id" is same as the one stored in global
+
+           Scenario:Retrieve all Employees
+             Given a request is prepared to get all employees
+             When a GET call is made to retrieve all employees
+             Then the status code of the request is 200
+             And it contains key1 "Total Employees" and Key2 "Employees"
+
+             Scenario:Retrieve all Employees status
+               Given a request is prepared to get all employees status
+               When a Get call is made to retrieve the status of all employees
+               Then it contains the value1 "Employee" value2 "Worker"
+
+
 
 
 

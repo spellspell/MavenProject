@@ -15,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class apiTestingFinalSteps {
      RequestSpecification request;
      Response response;
-     static  String employeeID;
+     public static  String employeeID;
      static String updated_employee_middle_name;
      static String partialupdated_first_name;
 
@@ -216,10 +216,92 @@ public class apiTestingFinalSteps {
     }
 
 
+//-----------------------Delete the Employee---------------------------------------------
+
+    @Given("a request is prepared to delete the employee")
+    public void a_request_is_prepared_to_delete_the_employee() {
+         request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
+                 .header(apiConstants.Header_Authorization,generateTokenSteps.token)
+                 .queryParam("employee_id",employeeID);
+
+
+    }
+
+
+    @When("a Delete call is made")
+    public void a_Delete_call_is_made() {
+
+        response=request.when().delete(apiConstants.DELETE_EMPLOYEE_URI);
+
+    }
+    @Then("the employee is successfully deleted with the {string} in response {string}")
+    public void the_employee_is_successfully_deleted_with_the_in_response(String key, String value) {
+
+        response.then().assertThat().body(key,equalTo(value));
+    }
+    @Then("the {string} is same as the one stored in global")
+    public void the_is_same_as_the_one_stored_in_global(String employee_id) {
+
+        response.then().assertThat().body(employee_id,equalTo(employeeID));
+
+    }
+
+//----------------------------Retrieve all Employees-----------------------------
+
+    @Given("a request is prepared to get all employees")
+    public void a_request_is_prepared_to_get_all_employees() {
+        request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
+                .header(apiConstants.Header_Authorization,generateTokenSteps.token);
+
+    }
+
+    @When("a GET call is made to retrieve all employees")
+    public void a_GET_call_is_made_to_retrieve_all_employees() {
+        response=request.when().get(apiConstants.GET_ALL_EMPLOYEE_URI);
+    }
+
+    @Then("the status code of the request is {int}")
+    public void the_status_code_of_the_request_is(int status_code) {
+         response.then().assertThat().statusCode(200);
+    }
+    @Then("it contains key1 {string} and Key2 {string}")
+    public void it_contains_key1_and_Key2(String key1, String key2 ) {
+         response.then().assertThat().body(containsString(key1)).body(containsString(key2));
+
+         String payload=response.asString();
+
+         JsonPath js= new JsonPath(payload);
+         int count =js.getInt("Employees.size()");
+         //print all employee ids
+//        for (int i=0 ;i<count;i++){
+//
+//            String allEmployeeIDs=js.getString("Employees["+i+"].employee_id");
+//            System.out.println(allEmployeeIDs);
+           }
+
+
+//-----------------------------------Retrieving all Employees-----------------------
+        @Given("a request is prepared to get all employees status")
+        public void a_request_is_prepared_to_get_all_employees_status() {
+            request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
+                    .header(apiConstants.Header_Authorization,generateTokenSteps.token);
+        }
+
+
+        @When("a Get call is made to retrieve the status of all employees")
+        public void a_Get_call_is_made_to_retrieve_the_status_of_all_employees() {
+            response=request.when().get(apiConstants.GET_EMPLOYEE_STATUS_URI);
+        }
+        @Then("it contains the value1 {string} value2 {string}")
+        public void it_contains_the_value1_value2(String value1, String value2) {
+
+         response.then().assertThat().body(containsString(value1)).body(containsString(value2));
+        }
+
+
+    }
 
 
 
 
 
-
-}
