@@ -1,5 +1,6 @@
 package com.hrms.api;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -32,9 +33,31 @@ public class apiTestingFinalSteps {
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
 //        preparing request to create Employee
-        request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
-                .header(apiConstants.Header_Authorization,generateTokenSteps.token)
-                .body(apiPayloadConstants.createEmployeeBody());
+//        request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
+//                .header(apiConstants.Header_Authorization,generateTokenSteps.token)
+//                .body(apiPayloadConstants.createEmployeeBody());
+
+        File input=new File("C:/Users/IT USER/Desktop/cucumber/CucumberFrameWorkBatch8/src/test/resources/JsonData/createUser.json");
+        JsonObject CreateUserData=null;
+        try {
+            //parsing the input file
+            JsonElement fileElement= JsonParser.parseReader(new FileReader(input));
+            CreateUserData = fileElement.getAsJsonObject();
+            //Acess the key message
+            JsonElement Message = CreateUserData.get("Message");
+            JsonElement Employee = CreateUserData.get("Employee");
+            JsonArray Employee_details = Employee.getAsJsonArray();
+            JsonElement Employee1_details = Employee_details.get(0);
+            JsonObject Employee1_Object = Employee1_details.getAsJsonObject();
+
+           System.out.println(Employee1_Object.get("emp_firstname"));
+        }
+
+
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
     }
     @When("a POST call is made to create an Employee")
