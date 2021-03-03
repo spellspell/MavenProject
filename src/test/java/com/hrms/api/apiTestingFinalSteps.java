@@ -1,5 +1,8 @@
 package com.hrms.api;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.hrms.utils.apiConstants;
 import com.hrms.utils.apiPayloadConstants;
 import io.cucumber.java.en.*;
@@ -7,6 +10,10 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import net.minidev.json.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -24,7 +31,7 @@ public class apiTestingFinalSteps {
 
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
-        //preparing request to create Employee
+//        preparing request to create Employee
         request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
                 .header(apiConstants.Header_Authorization,generateTokenSteps.token)
                 .body(apiPayloadConstants.createEmployeeBody());
