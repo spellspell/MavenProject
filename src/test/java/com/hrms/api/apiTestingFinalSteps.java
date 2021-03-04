@@ -4,24 +4,30 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.hrms.testbase.PageInitializer;
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.apiConstants;
 import com.hrms.utils.apiPayloadConstants;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import net.minidev.json.JSONObject;
+import org.junit.Assert;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class apiTestingFinalSteps {
+public class apiTestingFinalSteps extends PageInitializer {
      RequestSpecification request;
      Response response;
      public static  String employeeID;
@@ -73,10 +79,8 @@ public class apiTestingFinalSteps {
     public void a_request_is_prepared_to_retrieve_the_created_employee() {
          //preparing the request to retrieve the created employee
 
-       request = given()
-                .header(apiConstants.Header_Content_type, apiConstants.Content_type)
-                .header(apiConstants.Header_Authorization, generateTokenSteps.token)
-                .queryParam("employee_id",employeeID).log().all();
+        request=apiMethods.getOneEmployeeRequest(generateTokenSteps.token,employeeID);
+
     }
 
     @When("a GET call is made to retrieve the created Employee")
@@ -96,29 +100,39 @@ public class apiTestingFinalSteps {
         response.then().assertThat().body(value,equalTo(employeeID));
 
     }
-    @Then("the retrieved data matches the data used to create the employee")
-    public void the_retrieved_data_matches_the_data_used_to_create_the_employee() {
+    @Then("the retrieved data at {string} matches the data used to create the employee with employee ID {string}")
+    public void the_retrieved_data_at_matches_the_data_used_to_create_the_employee_with_employee_ID(String employeeObject, String responseEmployeeID, DataTable dataTable) {
 
-//        response.then().assertThat().body("employee[0].emp_firstname",equalTo("moazzam"));
 
-        JsonPath jpath= response.jsonPath();
-        String emp_first_name = jpath.getString("employee[0].emp_firstname");
-        String emp_last_name = jpath.getString("employee[0].emp_lastname");
-        String emp_middle_name = jpath.getString("employee[0].emp_middle_name");
-        String emp_birthday = jpath.getString("employee[0].emp_birthday");
-        String emp_gender = jpath.getString("employee[0].emp_gender");
-        String emp_job_title = jpath.getString("employee[0].emp_job_title");
-        String emp_status = jpath.getString("employee[0].emp_status");
+        //A map to have the data expected in the response-->feature file
+        List<Map<String, String>> expectedData = dataTable.asMaps(String.class, String.class);
 
-       assertThat(emp_first_name,equalTo("moazzam"));
-       assertThat(emp_last_name,equalTo("sadiq"));
-       assertThat(emp_middle_name,equalTo("s"));
-       assertThat(emp_birthday,equalTo("2021-02-27"));
-       assertThat(emp_gender,equalTo("Male"));
-       assertThat(emp_job_title,equalTo("Cloud Architect"));
-       assertThat(emp_status,equalTo("Employee"));
+        //getting data from the response body
+        List<Map<String, String>>actualData=response.body().jsonPath().get(employeeObject);
+
+        //loop through the keys in our hardcoded data and get the value
+        int index=0;
+        for(Map<String,String>map: expectedData){
+
+            Set<String> keys = map.keySet();
+
+            //loop thorugh Keys and get their value and assert
+
+            for(String key :keys){
+                String expectedValue = map.get(key);
+                String actualValue=actualData.get(index).get(key);
+                Assert.assertEquals(expectedValue,actualValue);
+            }
+
+            index ++;
+       }
+
+        String empID= response.body().jsonPath().getString(responseEmployeeID);
+        Assert.assertTrue(empID.contentEquals(employeeID));
 
     }
+
+
 
     //.........................................Updating the created employe---------------------------------
     @Given("a request is prepared to update the created employee")

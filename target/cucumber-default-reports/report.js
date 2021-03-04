@@ -150,11 +150,15 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the retrieved data matches the data used to create the employee",
+  "name": "the retrieved data at \"employee\" matches the data used to create the employee with employee ID \"employee[0].employee_id\"",
+  "rows": [
+    {},
+    {}
+  ],
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.hrms.api.apiTestingFinalSteps.the_retrieved_data_matches_the_data_used_to_create_the_employee()"
+  "location": "com.hrms.api.apiTestingFinalSteps.the_retrieved_data_at_matches_the_data_used_to_create_the_employee_with_employee_ID(java.lang.String,java.lang.String,io.cucumber.datatable.DataTable)"
 });
 formatter.result({
   "status": "passed"
