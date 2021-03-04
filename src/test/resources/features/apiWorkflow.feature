@@ -19,10 +19,13 @@
         When  a GET call is made to retrieve the created Employee
         Then the status code for retrieving the created employee is 200
         And the retrieved EmployeeID "employee[0].employee_id" matches the globally stored EmployeeID
-        And the retrieved data matches the data used to create the employee
+        And the retrieved data at "employee" matches the data used to create the employee with employee ID "employee[0].employee_id"
+          |emp_firstname| emp_middle_name|emp_lastname|emp_birthday|emp_gender|emp_job_title|emp_status|
+          |     moazzam  | s               |   sadiq |  2021-02-27  |     Male  |  Cloud Architect |Employee|
 
 
-        Scenario: Update the created Employee
+
+    Scenario: Update the created Employee
           Given a request is prepared to update the created employee
           When a PUT call is made to update the employee
           Then the status code is 201

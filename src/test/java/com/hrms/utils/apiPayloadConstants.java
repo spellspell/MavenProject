@@ -11,22 +11,22 @@ import java.io.FileReader;
 
 public class apiPayloadConstants {
 
-    public static String createEmployeeBody(){
+//    public static String createEmployeeBody(){
 
 
-        File input=new File("C:/Users/IT USER/Desktop/cucumber/CucumberFrameWorkBatch8/src/test/resources/JsonData/createUser.json");
-        JsonObject CreateUserData=null;
-        try {
-            //parsing the input file
-            JsonElement fileElement= JsonParser.parseReader(new FileReader(input));
-            CreateUserData = fileElement.getAsJsonObject();
-        }
-
-
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return  CreateUserData.toString();
-    }
+//        File input=new File("C:/Users/IT USER/Desktop/cucumber/CucumberFrameWorkBatch8/src/test/resources/JsonData/createUser.json");
+//        JsonObject CreateUserData=null;
+//        try {
+//            //parsing the input file
+//            JsonElement fileElement= JsonParser.parseReader(new FileReader(input));
+//            CreateUserData = fileElement.getAsJsonObject();
+//        }
+//
+//
+//        catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return  CreateUserData.toString();
+//    }
 }

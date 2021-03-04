@@ -20,4 +20,6 @@ public class apiConstants {
 
     public static final String Header_Authorization="Authorization";
 
+    public static final String CREATE_EMPLOYEE_JSON=System.getProperty("user.dir")+"/src/test/resources/JsonData/createUser.json";
+
 }
