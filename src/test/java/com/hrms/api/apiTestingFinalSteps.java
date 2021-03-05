@@ -40,11 +40,8 @@ public class apiTestingFinalSteps extends PageInitializer {
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
 //        preparing request to create Employee
-        request=given().header(apiConstants.Header_Content_type,apiConstants.Content_type)
-                .header(apiConstants.Header_Authorization,generateTokenSteps.token)
-                .body(CommonMethods.readJson(apiConstants.CREATE_EMPLOYEE_JSON)).log().all();
-
-        }
+       apiMethods. createEmployeeRequest(generateTokenSteps.token,CommonMethods.readJson(apiConstants.CREATE_EMPLOYEE_JSON));
+      }
 
 
 
@@ -103,32 +100,44 @@ public class apiTestingFinalSteps extends PageInitializer {
     @Then("the retrieved data at {string} matches the data used to create the employee with employee ID {string}")
     public void the_retrieved_data_at_matches_the_data_used_to_create_the_employee_with_employee_ID(String employeeObject, String responseEmployeeID, DataTable dataTable) {
 
+         String Body=response.asString();
 
-        //A map to have the data expected in the response-->feature file
-        List<Map<String, String>> expectedData = dataTable.asMaps(String.class, String.class);
 
-        //getting data from the response body
-        List<Map<String, String>>actualData=response.body().jsonPath().get(employeeObject);
+        JsonElement Response_json = JsonParser.parseString(Body);
+        JsonObject Response_json_obj = Response_json.getAsJsonObject();
+        JsonElement Employee_data = Response_json_obj.get("employee");
+        JsonArray Employee_data_array = Employee_data.getAsJsonArray();
+        JsonElement Employee_0_information = Employee_data_array.get(0);
+        JsonObject Employee_Info = Employee_0_information.getAsJsonObject();
+        System.out.println("The employee first name is"+Employee_Info.get("emp_firstname").toString());
+        System.out.println("The employee birthday is"+Employee_Info.get("emp_birthday").toString());
 
-        //loop through the keys in our hardcoded data and get the value
-        int index=0;
-        for(Map<String,String>map: expectedData){
 
-            Set<String> keys = map.keySet();
-
-            //loop thorugh Keys and get their value and assert
-
-            for(String key :keys){
-                String expectedValue = map.get(key);
-                String actualValue=actualData.get(index).get(key);
-                Assert.assertEquals(expectedValue,actualValue);
-            }
-
-            index ++;
-       }
-
-        String empID= response.body().jsonPath().getString(responseEmployeeID);
-        Assert.assertTrue(empID.contentEquals(employeeID));
+//        //A map to have the data expected in the response-->feature file
+//        List<Map<String, String>> expectedData = dataTable.asMaps(String.class, String.class);
+//
+//        //getting data from the response body
+//        List<Map<String, String>>actualData=response.body().jsonPath().get(employeeObject);
+//
+//        //loop through the keys in our hardcoded data and get the value
+//        int index=0;
+//        for(Map<String,String>map: expectedData){
+//
+//            Set<String> keys = map.keySet();
+//
+//            //loop thorugh Keys and get their value and assert
+//
+//            for(String key :keys){
+//                String expectedValue = map.get(key);
+//                String actualValue=actualData.get(index).get(key);
+//                Assert.assertEquals(expectedValue,actualValue);
+//            }
+//
+//            index ++;
+//       }
+//
+//        String empID= response.body().jsonPath().getString(responseEmployeeID);
+//        Assert.assertTrue(empID.contentEquals(employeeID));
 
     }
 
@@ -230,15 +239,13 @@ public class apiTestingFinalSteps extends PageInitializer {
 
     @Then("the partailly updated employee contains key {string} and value {string}")
     public void the_partailly_updated_employee_contains_key_and_value(String key, String value) {
-
-        response.then().assertThat().body(key,equalTo(value));
+         response.then().assertThat().body(key,equalTo(value));
 
     }
 
     @Then("the partially update employee {string} matches the globally stored employee first name")
     public void the_partially_update_employee_matches_the_globally_stored_employee_middle_name(String value) {
-
-        response.then().assertThat().body(value,equalTo(partialupdated_first_name));
+            response.then().assertThat().body(value,equalTo(partialupdated_first_name));
     }
 
 
@@ -283,7 +290,7 @@ public class apiTestingFinalSteps extends PageInitializer {
 
     @When("a GET call is made to retrieve all employees")
     public void a_GET_call_is_made_to_retrieve_all_employees() {
-//        response=request.when().get(apiConstants.GET_ALL_EMPLOYEE_URI);
+        response=request.when().get(apiConstants.GET_ALL_EMPLOYEE_URI);
     }
 
     @Then("the status code of the request is {int}")
@@ -306,9 +313,17 @@ public class apiTestingFinalSteps extends PageInitializer {
 
         //Get employee First name of each employee in syntax Hrms Data Base
 
-//          String response_string = response.asString();
-//          JsonObject response_getAllEmployees =JsonParser.parseString(response_string).getAsJsonObject() ;
-//          JsonArray array_ofAllEmployees = response_getAllEmployees.get("Employees").getAsJsonArray();
+          String response_string = response.asString();
+         JsonObject response_getAllEmployees =JsonParser.parseString(response_string).getAsJsonObject() ;
+            JsonArray array_ofAllEmployees = response_getAllEmployees.get("Employees").getAsJsonArray();
+            for (int i=0; i<100;i++) {
+                JsonObject Employee_0_information = array_ofAllEmployees.get(i).getAsJsonObject();
+                String employee_id_x = Employee_0_information.get("employee_id").getAsString();
+                System.out.println(employee_id_x);
+            }
+
+
+
 
 
 //          for (JsonElement x: array_ofAllEmployees){
@@ -317,7 +332,7 @@ public class apiTestingFinalSteps extends PageInitializer {
 //              String employee_firstName=Employee_data.get("employee_id").getAsString();
 //
 //              System.out.println(employee_firstName);
-//
+////
 //          }
 
            }

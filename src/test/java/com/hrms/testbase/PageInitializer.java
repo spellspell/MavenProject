@@ -12,6 +12,7 @@ public class PageInitializer extends BaseClass{
     public static PersonalDetailsPage personalDetailsPage;
     public static PIMConfigurationPage pimConfigurationPage;
     public static apiCommonMethods apiMethods;
+
     public static void initializePageObjects() {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
