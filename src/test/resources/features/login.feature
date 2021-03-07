@@ -1,7 +1,7 @@
 @featureTag  @login # feature level tag
 Feature: Login Functionality
 
-    @validCreds @smoke # scenario level tag
+    @validCreds @smoke11 # scenario level tag
   Scenario: Login with valid credentials
     #Given navigate to HRMS login page
     When enter valid credentials
